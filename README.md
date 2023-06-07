@@ -1,4 +1,2 @@
-# website
-
-Enter some useful information.
+Flix code for generating my personal website
 
