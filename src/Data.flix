@@ -16,7 +16,10 @@ mod Data {
         year = Int32
     }
 
-    pub type alias AdditionalInterest = String
+    pub type alias AdditionalInterest = {
+        title = String,
+        details = String
+    }
 
     pub type alias ContactInformation = String
 
@@ -27,7 +30,11 @@ mod Data {
         contactInformation = contactInformation()
     }
 
-    pub def researchInterests(): List[ResearchInterest] = Nil
+    pub def researchInterests(): List[ResearchInterest] = List#{
+        "Programming Languages",
+        "Type Systems",
+        "Effect Systems"
+    }
 
     pub def publications(): List[Publication] = List#{
         {
@@ -35,7 +42,7 @@ mod Data {
             authors = List#{
                 "Giuseppe Castagna",
                 "Mickael Laurent",
-                "Kim " + nguyen(),
+                "Kim Nguyen",
                 "Matthew Lutze"
             },
             conference = "POPL",
@@ -43,9 +50,24 @@ mod Data {
         }
     }
 
-    def nguyen(): String = "Nguy\u00e1\u00bb\u0085en"
-
-    pub def additionalInterests(): List[AdditionalInterest] = Nil
+    pub def additionalInterests(): List[AdditionalInterest] = List#{
+        {
+            title = "Blazonry",
+            details = "The \"programming language\" of heraldry."
+        },
+        {
+            title = "Music",
+            details = "Composition, Piano, Organ, Voice"
+        },
+        {
+            title = "Constructed Languages",
+            details = "Lojban, Toki Pona, Ithkuil"
+        },
+        {
+            title = "Natural Languages",
+            details = "French, Danish"
+        }
+    }
 
     pub def contactInformation(): ContactInformation = ""
 }
