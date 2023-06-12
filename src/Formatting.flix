@@ -1,7 +1,9 @@
 mod Formatting {
 
     use Text.HtmlDoc.Html
+    use Text.HtmlDoc.br
     use Text.HtmlDoc.concat
+    use Text.HtmlDoc.em
     use Text.HtmlDoc.h1
     use Text.HtmlDoc.h2
     use Text.HtmlDoc.li
@@ -9,6 +11,8 @@ mod Formatting {
     use Text.HtmlDoc.paragraph
     use Text.HtmlDoc.text
     use Text.HtmlDoc.{<&>}
+
+    use Util.emptyHtml
 
     pub def everything(data: Data.Everything): Html = {
         h1(Nil, text("Matthew Lutze"))
@@ -34,7 +38,18 @@ mod Formatting {
         ol(Nil, concat(lis))
     }
 
-    pub def publication(data: Data.Publication): Html = text("${data.authors}")
+    pub def publication(data: Data.Publication): Html =
+        text(data.title) // TODO link
+        <&>
+        text("—") // em-dash
+        <&>
+        text(data.conference)
+        <&>
+        text("${data.year}")
+        <&>
+        br(Nil, emptyHtml()) // TODO built-in helper later?
+        <&>
+        em(Nil, text(String.intercalate(", ", data.authors)))
 
     pub def contactInformation(data: String): Html = ???
 
