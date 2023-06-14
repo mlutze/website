@@ -30,13 +30,13 @@ mod Data {
         contactInformation = contactInformation()
     }
 
-    pub def researchInterests(): List[ResearchInterest] = List#{
+    def researchInterests(): List[ResearchInterest] = List#{
         "Programming Languages",
         "Type Systems",
         "Effect Systems"
     }
 
-    pub def publications(): List[Publication] = List#{
+    def publications(): List[Publication] = List#{
         {
             title = "On Type-Cases, Union Elimination, and Occurrence Typing",
             authors = List#{
@@ -50,7 +50,7 @@ mod Data {
         }
     }
 
-    pub def additionalInterests(): List[AdditionalInterest] = List#{
+    def additionalInterests(): List[AdditionalInterest] = List#{
         {
             title = "Blazonry",
             details = "The \"programming language\" of heraldry."
@@ -69,5 +69,5 @@ mod Data {
         }
     }
 
-    pub def contactInformation(): ContactInformation = ""
+    def contactInformation(): ContactInformation = ""
 }

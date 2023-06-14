@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
+java -jar flix.jar build
+java -jar flix.jar build-jar
+java -jar artifact/website.jar > preview.html
