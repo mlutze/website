@@ -1,10 +1,23 @@
 mod Data {
 
+    pub type alias Linked[a] = {
+        link = Option[String],
+        value = a
+    }
+
     pub type alias Everything = {
+        affiliation = Affiliation,
         researchInterests = List[ResearchInterest],
         publications = List[Publication],
         additionalInterests = List[AdditionalInterest],
         contactInformation = ContactInformation
+    }
+
+    pub type alias Affiliation = {
+        title = String,
+        group = Linked[String],
+        department = Linked[String],
+        institute = Linked[String]
     }
 
     pub type alias ResearchInterest = String
@@ -24,10 +37,27 @@ mod Data {
     pub type alias ContactInformation = String
 
     pub def everything(): Everything = {
+        affiliation = Data.affiliation(),
         researchInterests = researchInterests(),
         publications = publications(),
         additionalInterests = additionalInterests(),
         contactInformation = contactInformation()
+    }
+
+    def affiliation(): Affiliation = {
+        title = "Ph.D. Fellow",
+        group = {
+            value = "Programming Language Group",
+            link = Some("https://cs.au.dk/research/programming-languages")
+        },
+        department = {
+            value = "Department of Computer Science",
+            link = Some("https://cs.au.dk")
+        },
+        institute = {
+            value = "Aarhus Univerity",
+            link = Some("https://au.dk")
+        }
     }
 
     def researchInterests(): List[ResearchInterest] = List#{
