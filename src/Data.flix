@@ -41,8 +41,8 @@ mod Data {
             title = "On Type-Cases, Union Elimination, and Occurrence Typing",
             authors = List#{
                 "Giuseppe Castagna",
-                "Mickael Laurent",
-                "Kim Nguyen",
+                "Mickaël Laurent",
+                "Kim Nguyễn", // diacritics look wrong in source but OK in browser
                 "Matthew Lutze"
             },
             conference = "POPL",
