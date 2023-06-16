@@ -24,14 +24,18 @@ mod Data {
 
     pub type alias Publication = {
         title = String,
-        authors = List[String],
-        conference = String,
-        year = Int32
+        authors = List[Linked[String]],
+        conference = Linked[Conference]
     }
 
     pub type alias AdditionalInterest = {
         title = String,
         details = String
+    }
+
+    pub type alias Conference = {
+        title = String,
+        year = Int32
     }
 
     pub type alias ContactInformation = String
@@ -70,13 +74,12 @@ mod Data {
         {
             title = "On Type-Cases, Union Elimination, and Occurrence Typing",
             authors = List#{
-                "Giuseppe Castagna",
-                "Mickaël Laurent",
-                "Kim Nguyễn", // diacritics look wrong in source but OK in browser
-                "Matthew Lutze"
+                People.giuseppeCastagna(),
+                People.mickaelLaurent(),
+                People.kimNguyen(),
+                People.matthewLutze()
             },
-            conference = "POPL",
-            year = 2022
+            conference = Conferences.popl2022()
         }
     }
 

@@ -52,13 +52,13 @@ mod Formatting {
         <&>
         text("—") // em-dash
         <&>
-        text(data.conference)
+        text(data.conference.value.title)
         <&>
-        text("${data.year}")
+        text("${data.conference.value.year}")
         <&>
         br0(Nil)
         <&>
-        em(Nil, text(String.intercalate(", ", data.authors)))
+        em(Nil, text(String.intercalate(", ", data.authors |> List.map(a -> a.value))))
 
     pub def contactInformation(data: String): Html = ???
 
