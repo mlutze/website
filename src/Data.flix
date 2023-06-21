@@ -20,7 +20,10 @@ mod Data {
         institute = Linked[String]
     }
 
-    pub type alias ResearchInterest = String
+    pub type alias ResearchInterest = {
+        title = String,
+        details = String
+    }
 
     pub type alias Publication = {
         title = String,
@@ -65,9 +68,18 @@ mod Data {
     }
 
     def researchInterests(): List[ResearchInterest] = List#{
-        "Programming Languages",
-        "Type Systems",
-        "Effect Systems"
+        {
+            title = "Programming Languages",
+            details = "I am a contributor to the Flix programming language."
+        },
+        {
+            title = "Type Systems",
+            details = "Type inference, subtyping, type classes"
+        },
+        {
+            title = "Effect Systems",
+            details = "Algebraic effects, Boolean unification-based effects"
+        }
     }
 
     def publications(): List[Publication] = List#{
@@ -86,7 +98,7 @@ mod Data {
     def additionalInterests(): List[AdditionalInterest] = List#{
         {
             title = "Blazonry",
-            details = "The \"programming language\" of heraldry."
+            details = "The \"programming language\" of heraldry"
         },
         {
             title = "Music",

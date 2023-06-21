@@ -57,7 +57,7 @@ mod Formatting {
         }
     }
 
-    pub def researchInterests(data: List[String]): Html = {
+    pub def researchInterests(data: List[Data.ResearchInterest]): Html = {
         let header = h2(Nil, text("Research Interests"));
         let description = em(Nil, text("Subjects I explore professionally"));
         let list = data
@@ -67,8 +67,12 @@ mod Formatting {
         header <&> description <&> list
     }
 
-    pub def researchInterest(data: String): Html = {
-        text(data)
+    pub def researchInterest(data: Data.ResearchInterest): Html = {
+        text(data.title)
+        <&>
+        text(" — ") // em-dash
+        <&>
+        text(data.details)
     }
 
 
