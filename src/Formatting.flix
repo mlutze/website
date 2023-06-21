@@ -23,6 +23,10 @@ mod Formatting {
         <&>
         br0(Nil)
         <&>
+        researchInterests(data.researchInterests)
+        <&>
+        br0(Nil)
+        <&>
         publications(data.publications)
         <&>
         br0(Nil)
@@ -53,9 +57,19 @@ mod Formatting {
         }
     }
 
-    pub def researchInterests(data: List[String]): Html = ???
+    pub def researchInterests(data: List[String]): Html = {
+        let header = h2(Nil, text("Research Interests"));
+        let description = em(Nil, text("Subjects I explore professionally"));
+        let list = data
+            |> List.map(researchInterest)
+            |> mkUnorderedList;
+        
+        header <&> description <&> list
+    }
 
-    pub def researchInterest(data: String): Html = ???
+    pub def researchInterest(data: String): Html = {
+        text(data)
+    }
 
 
     pub def publications(data: List[Data.Publication]): Html = {
@@ -80,15 +94,17 @@ mod Formatting {
     pub def publication(data: Data.Publication): Html = {
         text(data.title) // TODO link
         <&>
-        text("—") // em-dash
+        text(" — ") // em-dash
         <&>
-        text(data.conference.value.title)
-        <&>
-        text("${data.conference.value.year}")
+        linked(conference, data.conference)
         <&>
         br0(Nil)
         <&>
         authors(data.authors)
+    }
+
+    pub def conference(data: Data.Conference): Html = {
+        text("${data.title} ${data.year}")
     }
 
     def authors(data: List[Data.Linked[String]]): Html = {
@@ -103,17 +119,18 @@ mod Formatting {
 
     pub def additionalInterests(data: List[Data.AdditionalInterest]): Html = {
         let header = h2(Nil, text("Additional Interests"));
+        let description = em(Nil, text("Subjects I explore in my spare time"));
         let list = data
             |> List.map(additionalInterest)
             |> mkUnorderedList;
         
-        header <&> list
+        header <&> description <&> list
     }
 
     pub def additionalInterest(data: Data.AdditionalInterest): Html = {
         text(data.title)
         <&>
-        text("—") // em-dash
+        text(" — ") // em-dash
         <&>
         text(data.details)
     }
