@@ -21,6 +21,8 @@ mod Formatting {
         <&>
         affiliation(data.affiliation)
         <&>
+        contactInformation(data.contactInformation)
+        <&>
         br0(Nil)
         <&>
         researchInterests(data.researchInterests)
@@ -119,7 +121,9 @@ mod Formatting {
             |> em(Nil)
     }
 
-    pub def contactInformation(data: String): Html = ???
+    pub def contactInformation(data: Data.ContactInformation): Html = {
+        ???
+    }
 
     pub def additionalInterests(data: List[Data.AdditionalInterest]): Html = {
         let header = h2(Nil, text("Additional Interests"));

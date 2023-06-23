@@ -41,7 +41,10 @@ mod Data {
         year = Int32
     }
 
-    pub type alias ContactInformation = String
+    pub type alias ContactInformation = {
+        office = String,
+        email = String
+    }
 
     pub def everything(): Everything = {
         affiliation = Data.affiliation(),
@@ -109,10 +112,13 @@ mod Data {
             details = "Lojban, Toki Pona, Ithkuil"
         },
         {
-            title = "Natural Languages",
-            details = "French, Danish"
+            title = "Natural Languages and Grammar",
+            details = "English, French, Danish"
         }
     }
 
-    def contactInformation(): ContactInformation = ""
+    def contactInformation(): ContactInformation = {
+        office = "Turing 217",
+        email = "mlutze@cs.au.dk"
+    }
 }
