@@ -114,6 +114,10 @@ mod Data {
         {
             title = "Natural Languages and Grammar",
             details = "English, French, Danish"
+        },
+        {
+            title = "(Nearly) Obsolete Communication Forms",
+            details = "Morse Code, Runes, Semaphore"
         }
     }
 

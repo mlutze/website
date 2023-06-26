@@ -21,6 +21,8 @@ mod Formatting {
         <&>
         affiliation(data.affiliation)
         <&>
+        br0(Nil) <&> br0(Nil)
+        <&>
         contactInformation(data.contactInformation)
         <&>
         br0(Nil)
@@ -122,7 +124,11 @@ mod Formatting {
     }
 
     pub def contactInformation(data: Data.ContactInformation): Html = {
-        ???
+        text(data.office)
+        <&>
+        br0(Nil)
+        <&>
+        text(data.email)
     }
 
     pub def additionalInterests(data: List[Data.AdditionalInterest]): Html = {
