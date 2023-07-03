@@ -77,11 +77,11 @@ mod Data {
         },
         {
             title = "Type Systems",
-            details = "Type inference, subtyping, type classes"
+            details = "type inference, subtyping, type classes"
         },
         {
             title = "Effect Systems",
-            details = "Algebraic effects, Boolean unification-based effects"
+            details = "algebraic effects, Boolean unification-based effects"
         }
     }
 
@@ -101,11 +101,11 @@ mod Data {
     def additionalInterests(): List[AdditionalInterest] = List#{
         {
             title = "Blazonry",
-            details = "The \"programming language\" of heraldry"
+            details = "the \"programming language\" of heraldry"
         },
         {
             title = "Music",
-            details = "Composition, Piano, Organ, Voice"
+            details = "composition, piano, organ, voice"
         },
         {
             title = "Constructed Languages",
@@ -117,7 +117,7 @@ mod Data {
         },
         {
             title = "(Nearly) Obsolete Communication Forms",
-            details = "Morse Code, Runes, Semaphore"
+            details = "Morse Code, runes, semaphore"
         }
     }
 
