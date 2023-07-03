@@ -3,6 +3,7 @@ mod Formatting {
     use Text.HtmlDoc.Html
     use Text.HtmlDoc.anchor
     use Text.HtmlDoc.br0
+    use Text.HtmlDoc.charset_
     use Text.HtmlDoc.concat
     use Text.HtmlDoc.em
     use Text.HtmlDoc.empty
@@ -10,6 +11,7 @@ mod Formatting {
     use Text.HtmlDoc.h2
     use Text.HtmlDoc.href_
     use Text.HtmlDoc.li
+    use Text.HtmlDoc.meta0
     use Text.HtmlDoc.ol
     use Text.HtmlDoc.paragraph
     use Text.HtmlDoc.text
@@ -17,6 +19,8 @@ mod Formatting {
     use Text.HtmlDoc.{<&>}
 
     pub def everything(data: Data.Everything): Html = {
+        meta0(List#{charset_("UTF-8")})
+        <&>
         h1(Nil, text("Matthew Lutze"))
         <&>
         affiliation(data.affiliation)
