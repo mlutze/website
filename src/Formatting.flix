@@ -1,6 +1,7 @@
 mod Formatting {
 
     use Text.HtmlDoc.Html
+    use Text.HtmlDoc.HtmlAttr.HtmlAttrBoolean
     use Text.HtmlDoc.anchor
     use Text.HtmlDoc.br0
     use Text.HtmlDoc.charset_
@@ -14,6 +15,7 @@ mod Formatting {
     use Text.HtmlDoc.meta0
     use Text.HtmlDoc.ol
     use Text.HtmlDoc.paragraph
+    use Text.HtmlDoc.strong
     use Text.HtmlDoc.text
     use Text.HtmlDoc.ul
     use Text.HtmlDoc.{<&>}
@@ -90,15 +92,20 @@ mod Formatting {
         let header = h2(Nil, text("Publications"));
         let list = data
             |> List.map(publication)
-            |> mkOrderedList;
+            |> mkReverseList;
 
         header <&> list
     }
 
-    def mkOrderedList(elms: List[Html]): Html = {
-        let lis = elms |> List.map(li(Nil));
-        ol(Nil, concat(lis))
+    def mkReverseList(elms: List[Html]): Html = {
+        let lis = elms |> List.reverse |> List.map(li(Nil));
+        ol(HtmlAttrBoolean("reversed") :: Nil, concat(lis))
     }
+
+    // def mkOrderedList(elms: List[Html]): Html = {
+    //     let lis = elms |> List.map(li(Nil));
+    //     ol(Nil, concat(lis))
+    // }
 
     def mkUnorderedList(elms: List[Html]): Html = {
         let lis = elms |> List.map(li(Nil));
@@ -106,7 +113,7 @@ mod Formatting {
     }
 
     pub def publication(data: Data.Publication): Html = {
-        text(data.title) // TODO link
+        strong(Nil, text(data.title))
         <&>
         text(" — ") // em-dash
         <&>
@@ -115,6 +122,7 @@ mod Formatting {
         br0(Nil)
         <&>
         authors(data.authors)
+        // TODO link
     }
 
     pub def conference(data: Data.Conference): Html = {

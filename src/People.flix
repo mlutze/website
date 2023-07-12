@@ -20,4 +20,14 @@ mod Data.People {
         value = "Matthew Lutze",
         link = None
     }
+
+    pub def magnusMadsen(): Linked[String] = {
+        value = "Magnus Madsen",
+        link = Some("https://cs.au.dk/~magnusm/")
+    }
+
+    pub def jonathanLindegaardStarup(): Linked[String] = {
+        value = "Jonathan Lindegaard Starup",
+        link = None
+    }
 }

@@ -85,6 +85,7 @@ mod Data {
         }
     }
 
+    /// List of publications in chronological order.
     def publications(): List[Publication] = List#{
         {
             title = "On Type-Cases, Union Elimination, and Occurrence Typing",
@@ -95,6 +96,15 @@ mod Data {
                 People.matthewLutze()
             },
             conference = Conferences.popl2022()
+        },
+        {
+            title = "Restrictable Variants: A Simple and Practical Alternative to Extensible Variants",
+            authors = List#{
+                People.magnusMadsen(),
+                People.jonathanLindegaardStarup(),
+                People.matthewLutze()
+            },
+            conference = Conferences.ecoop2023()
         }
     }
 
