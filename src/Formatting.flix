@@ -22,7 +22,6 @@ mod Formatting {
 
     pub def everything(data: Data.Everything): Html = {
         // TODO add body/head stuff
-        // TODO add doctype
         meta0(List#{charset_("UTF-8")})
         <&>
         h1(Nil, text("Matthew Lutze"))

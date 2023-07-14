@@ -3,4 +3,4 @@ set -e
 
 java -jar flix.jar build
 java -jar flix.jar build-jar
-java -jar artifact/website.jar > preview.html
+java -jar artifact/website.jar preview.html
