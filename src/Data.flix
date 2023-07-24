@@ -28,7 +28,8 @@ mod Data {
     pub type alias Publication = {
         title = String,
         authors = List[Linked[String]],
-        conference = Linked[Conference]
+        conference = Linked[Conference],
+        doi = String
     }
 
     pub type alias AdditionalInterest = {
@@ -95,7 +96,8 @@ mod Data {
                 People.kimNguyen(),
                 People.matthewLutze()
             },
-            conference = Conferences.popl2022()
+            conference = Conferences.popl2022(),
+            doi = "10.1145/3498674"
         },
         {
             title = "Restrictable Variants: A Simple and Practical Alternative to Extensible Variants",
@@ -104,7 +106,8 @@ mod Data {
                 People.jonathanLindegaardStarup(),
                 People.matthewLutze()
             },
-            conference = Conferences.ecoop2023()
+            conference = Conferences.ecoop2023(),
+            doi = "10.4230/LIPIcs.ECOOP.2023.17"
         }
     }
 
