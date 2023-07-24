@@ -18,7 +18,7 @@ mod Formatting {
     use Text.HtmlDoc.strong
     use Text.HtmlDoc.text
     use Text.HtmlDoc.ul
-    use Text.HtmlDoc.{<&>}
+    use Text.HtmlDoc.{<&>, <&&>}
 
     pub def everything(data: Data.Everything): Html = {
         // TODO add body/head stuff
@@ -113,15 +113,27 @@ mod Formatting {
 
     pub def publication(data: Data.Publication): Html = {
         strong(Nil, text(data.title))
+        <&&>
+        doiLink(data.doi)
         <&>
-        text(" — ") // em-dash
+        br0(Nil)
+        <&>
+        text("at ")
         <&>
         linked(conference, data.conference)
         <&>
         br0(Nil)
         <&>
+        // text(" — ") // em-dash
+        text("by ") // em-dash
+        <&>
         authors(data.authors)
         // TODO link
+    }
+
+    def doiLink(doi: String): Html = {
+        let link = "https://doi.org/" + doi;
+        anchor(List#{href_(link)}, text("[link]"))
     }
 
     pub def conference(data: Data.Conference): Html = {
