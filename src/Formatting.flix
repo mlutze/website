@@ -10,7 +10,9 @@ mod Formatting {
     use Text.HtmlDoc.empty
     use Text.HtmlDoc.h1
     use Text.HtmlDoc.h2
+    use Text.HtmlDoc.head
     use Text.HtmlDoc.href_
+    use Text.HtmlDoc.title
     use Text.HtmlDoc.li
     use Text.HtmlDoc.meta0
     use Text.HtmlDoc.ol
@@ -21,8 +23,7 @@ mod Formatting {
     use Text.HtmlDoc.{<&>, <&&>}
 
     pub def everything(data: Data.Everything): Html = {
-        // TODO add body/head stuff
-        meta0(List#{charset_("UTF-8")})
+        head(Nil, headContent())
         <&>
         h1(Nil, text("Matthew Lutze"))
         <&>
@@ -43,6 +44,12 @@ mod Formatting {
         br0(Nil)
         <&>
         additionalInterests(data.additionalInterests)
+    }
+
+    def headContent(): Html = {
+        meta0(List#{charset_("UTF-8")})
+        <&>
+        title(Nil, text("Matthew Lutze"))
     }
 
     pub def affiliation(data: Data.Affiliation): Html = {
