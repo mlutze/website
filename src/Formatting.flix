@@ -131,11 +131,11 @@ mod Formatting {
         <&>
         br0(Nil)
         <&>
-        // text(" — ") // em-dash
-        text("by ") // em-dash
-        <&>
-        authors(data.authors)
-        // TODO link
+        em(Nil, 
+            text("by ")
+            <&>
+            authors(data.authors)
+        )
     }
 
     def doiLink(doi: String): Html = {
@@ -152,7 +152,6 @@ mod Formatting {
             |> List.map(linked(text))
             |> List.reduceLeft((acc, link) -> acc <&> text(", ") <&> link)
             |> Option.getWithDefault(empty())
-            |> em(Nil)
     }
 
     pub def contactInformation(data: Data.ContactInformation): Html = {
