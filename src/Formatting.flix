@@ -155,6 +155,7 @@ mod Formatting {
     }
 
     pub def contactInformation(data: Data.ContactInformation): Html = {
+        // TODO address tag
         text(data.office)
         <&>
         br0(Nil)
