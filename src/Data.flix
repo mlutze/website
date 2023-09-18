@@ -108,6 +108,17 @@ mod Data {
             },
             conference = Conferences.ecoop2023(),
             doi = "10.4230/LIPIcs.ECOOP.2023.17"
+        },
+        {
+            title = "With or Without You: Programming with Effect Exclusion",
+            authors = List#{
+                People.matthewLutze(),
+                People.magnusMadsen(),
+                People.philippSchuster(),
+                People.jonathanImmanuelBrachthauser()
+            },
+            conference = Conferences.icfp2023(),
+            doi = "https://doi.org/10.1145/3607846"
         }
     }
 
