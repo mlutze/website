@@ -1,9 +1,24 @@
 mod Data.People {
     use Data.Linked
 
+    pub def carolineBerger(): Linked[String] = {
+        value = "Caroline Berger",
+        link = None
+    }
+
     pub def giuseppeCastagna(): Linked[String] = {
         value = "Giuseppe Castagna",
         link = Some("https://www.irif.fr/~gc/")
+    }
+
+    pub def niklasElmqvist(): Linked[String] = {
+        value = "Niklas Elmqvist",
+        link = None
+    }
+
+    pub def clemensNylandstedKlokmose(): Linked[String] = {
+        value = "Clemens Nylandsted Klokmose",
+        link = None
     }
 
     pub def mickaelLaurent(): Linked[String] = {

@@ -18,11 +18,27 @@ mod Data.Conferences {
         link = Some("https://2023.ecoop.org/")
     }
 
-    pub def icfp2023(): Linked[Conference] ={
+    pub def icfp2023(): Linked[Conference] = {
         value = {
             title = "ICFP",
             year = 2023
         },
         link = Some("https://icfp23.org")
+    }
+
+    pub def plateau2024(): Linked[Conference] = {
+        value = {
+            title = "PLATEAU",
+            year = 2024
+        },
+        link = None
+    }
+
+    pub def pldi2024(): Linked[Conference] = {
+        value = {
+            title = "PLDI",
+            year = 2024
+        },
+        link = None
     }
 }

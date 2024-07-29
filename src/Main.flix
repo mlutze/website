@@ -10,9 +10,9 @@ def main(): Unit \ IO = {
 }
 
 def doMain(): Result[String, Unit] \ IO = {
-    for (
+    forM (
         file <- getWriteFile();
-        _ <- writeToFile(file)
+        _ <- writeToFile(file) |> Result.mapErr(ToString.toString)
     ) yield ()
 }
 
@@ -24,9 +24,9 @@ def getWriteFile(): Result[String, String] = {
     }
 }
 
-def writeToFile(file: String): Result[String, Unit] \ IO = {
+def writeToFile(file: String): Result[IOError, Unit] \ IO = {
     let doc = Formatting.everything(Data.everything());
-    for (
+    forM (
         _ <- writeHtml!(120, file, doc)
     ) yield ()
 }

@@ -118,7 +118,28 @@ mod Data {
                 People.jonathanImmanuelBrachthauser()
             },
             conference = Conferences.icfp2023(),
-            doi = "https://doi.org/10.1145/3607846"
+            doi = "10.1145/3607846"
+        },
+        {
+            title = "Scientists and Code: Programming as a Tool",
+            authors = List#{
+                People.carolineBerger(),
+                People.matthewLutze(),
+                People.niklasElmqvist(),
+                People.magnusMadsen(),
+                People.clemensNylandstedKlokmose()
+            },
+            conference = Conferences.plateau2024(),
+            doi = "10.1184/R1/25587726.v1"
+        },
+        {
+            title = "Associated Effects: Flexible Abstractions for Effectful Programming",
+            authors = List#{
+                People.matthewLutze(),
+                People.magnusMadsen()
+            },
+            conference = Conferences.pldi2024(),
+            doi = "https://doi.org/10.1145/3656393"
         }
     }
 
