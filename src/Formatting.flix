@@ -27,23 +27,27 @@ mod Formatting {
         <&>
         h1(Nil, text("Matthew Lutze"))
         <&>
-        affiliation(data.affiliation)
+        affiliation(data#affiliation)
         <&>
         br0(Nil) <&> br0(Nil)
         <&>
-        contactInformation(data.contactInformation)
+        contactInformation(data#contactInformation)
         <&>
         br0(Nil)
         <&>
-        researchInterests(data.researchInterests)
+        researchInterests(data#researchInterests)
         <&>
         br0(Nil)
         <&>
-        publications(data.publications)
+        publications(data#publications)
         <&>
         br0(Nil)
         <&>
-        additionalInterests(data.additionalInterests)
+        academicServices(data#academicService)
+        <&>
+        br0(Nil)
+        <&>
+        additionalInterests(data#additionalInterests)
     }
 
     def headContent(): Html = {
@@ -53,25 +57,25 @@ mod Formatting {
     }
 
     pub def affiliation(data: Data.Affiliation): Html = {
-        text(data.title)
+        text(data#title)
         <&>
         br0(Nil)
         <&>
-        linked(text, data.group)
+        linked(text, data#group)
         <&>
         br0(Nil)
         <&>
-        linked(text, data.department)
+        linked(text, data#department)
         <&>
         br0(Nil)
         <&>
-        linked(text, data.institute)
+        linked(text, data#institute)
     }
 
     pub def linked(f: a -> Html, data: Data.Linked[a]): Html = {
-        match data.link {
-            case None => f(data.value)
-            case Some(link) => anchor(List#{href_(link)}, f(data.value))
+        match data#link {
+            case None => f(data#value)
+            case Some(link) => anchor(List#{href_(link)}, f(data#value))
         }
     }
 
@@ -86,11 +90,11 @@ mod Formatting {
     }
 
     pub def researchInterest(data: Data.ResearchInterest): Html = {
-        text(data.title)
+        text(data#title)
         <&>
         text(" — ") // em-dash
         <&>
-        text(data.details)
+        text(data#details)
     }
 
 
@@ -119,23 +123,41 @@ mod Formatting {
     }
 
     pub def publication(data: Data.Publication): Html = {
-        strong(Nil, text(data.title))
+        strong(Nil, text(data#title))
         <&&>
-        doiLink(data.doi)
+        doiLink(data#doi)
         <&>
         br0(Nil)
         <&>
         text("at ")
         <&>
-        linked(conference, data.conference)
+        linked(conference, data#conference)
         <&>
         br0(Nil)
         <&>
         em(Nil, 
             text("by ")
             <&>
-            authors(data.authors)
+            authors(data#authors)
         )
+    }
+
+    pub def academicServices(data: List[Data.AcademicService]): Html = {
+        let header = h2(Nil, text("Academic Service"));
+        let list = data
+            |> List.reverse
+            |> List.map(academicService)
+            |> mkUnorderedList;
+        
+        header <&> list
+    }
+
+    pub def academicService(data: Data.AcademicService): Html = {
+        strong(Nil, text(data#role))
+        <&>
+        text(" at ")
+        <&>
+        linked(conference, data#conference)
     }
 
     def doiLink(doi: String): Html = {
@@ -144,7 +166,7 @@ mod Formatting {
     }
 
     pub def conference(data: Data.Conference): Html = {
-        text("${data.title} ${data.year}")
+        text("${data#title} ${data#year}")
     }
 
     def authors(data: List[Data.Linked[String]]): Html = {
@@ -156,11 +178,11 @@ mod Formatting {
 
     pub def contactInformation(data: Data.ContactInformation): Html = {
         // TODO address tag
-        text(data.office)
+        text(data#office)
         <&>
         br0(Nil)
         <&>
-        text(data.email)
+        text(data#email)
     }
 
     pub def additionalInterests(data: List[Data.AdditionalInterest]): Html = {
@@ -174,10 +196,10 @@ mod Formatting {
     }
 
     pub def additionalInterest(data: Data.AdditionalInterest): Html = {
-        text(data.title)
+        text(data#title)
         <&>
         text(" — ") // em-dash
         <&>
-        text(data.details)
+        text(data#details)
     }
 }

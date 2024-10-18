@@ -1,13 +1,13 @@
 use Text.HtmlDoc.toString
 use Text.HtmlDoc.writeHtml!
+import java.lang.System
 
-def main(): Unit \ IO = {
-    import static java.lang.System.exit(Int32): Unit \ IO;
+def main(): Unit \ IO = unchecked_cast({
     match doMain() {
-        case Ok(()) => exit(0)
-        case Err(msg) => System.StdErr.println("Error: " + msg); exit(1)
+        case Ok(()) => System.exit(0)
+        case Err(msg) => System.err.println("Error: " + msg); System.exit(1)
     }
-}
+} as Unit \ IO) // hack for now
 
 def doMain(): Result[String, Unit] \ IO = {
     forM (

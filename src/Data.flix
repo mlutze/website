@@ -9,6 +9,7 @@ mod Data {
         affiliation = Affiliation,
         researchInterests = List[ResearchInterest],
         publications = List[Publication],
+        academicService = List[AcademicService],
         additionalInterests = List[AdditionalInterest],
         contactInformation = ContactInformation
     }
@@ -47,16 +48,22 @@ mod Data {
         email = String
     }
 
+    pub type alias AcademicService = {
+        role = String,
+        conference = Linked[Conference]
+    }
+
     pub def everything(): Everything = {
         affiliation = Data.affiliation(),
         researchInterests = researchInterests(),
         publications = publications(),
         additionalInterests = additionalInterests(),
+        academicService = academicService(),
         contactInformation = contactInformation()
     }
 
     def affiliation(): Affiliation = {
-        title = "Ph.D. Fellow",
+        title = "Ph.D. Student",
         group = {
             value = "Programming Language Group",
             link = Some("https://cs.au.dk/research/programming-languages")
@@ -140,6 +147,17 @@ mod Data {
             },
             conference = Conferences.pldi2024(),
             doi = "https://doi.org/10.1145/3656393"
+        }
+    }
+
+    def academicService(): List[AcademicService] = List#{
+        {
+            role = "Artifact Evaluation Reviewer",
+            conference = Conferences.pldi2024()
+        },
+        {
+            role = "Artifact Evaluation Reviewer",
+            conference = Conferences.popl2025()
         }
     }
 
