@@ -173,6 +173,10 @@ mod Data {
         {
             role = "Artifact Evaluation Reviewer",
             conference = Conferences.popl2025()
+        },
+        {
+            role = "Program Commitee Member",
+            conference = Conferences.ftfjp2025()
         }
     }
 

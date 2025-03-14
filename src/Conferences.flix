@@ -57,4 +57,12 @@ mod Data.Conferences {
         },
         link = Some("https://2025.splashcon.org/track/OOPSLA")
     }
+
+    pub def ftfjp2025(): Linked[Conference] = {
+        value = {
+            title = "FTfJP",
+            year = 2025
+        },
+        link = Some("https://2025.ecoop.org/home/FTfJP-2025")
+    }
 }
