@@ -49,4 +49,12 @@ mod Data.Conferences {
         },
         link = Some("https://popl25.sigplan.org/")
     }
+
+    pub def oopsla2025(): Linked[Conference] = {
+        value = {
+            title = "OOPSLA",
+            year = 2025
+        },
+        link = Some("https://2025.splashcon.org/track/OOPSLA")
+    }
 }

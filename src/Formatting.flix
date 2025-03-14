@@ -125,7 +125,7 @@ mod Formatting {
     pub def publication(data: Data.Publication): Html = {
         strong(Nil, text(data#title))
         <&&>
-        doiLink(data#doi)
+        publicationSite(data#site)
         <&>
         br0(Nil)
         <&>
@@ -158,6 +158,11 @@ mod Formatting {
         text(" at ")
         <&>
         linked(conference, data#conference)
+    }
+
+    def publicationSite(site: Data.PublicationSite): Html = match site {
+        case Data.PublicationSite.Doi(doi) => doiLink(doi)
+        case Data.PublicationSite.Link(link) => anchor(List#{href_(link)}, text("[link]"))
     }
 
     def doiLink(doi: String): Html = {

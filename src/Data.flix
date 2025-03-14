@@ -26,11 +26,16 @@ mod Data {
         details = String
     }
 
+    pub enum PublicationSite {
+        case Link(String)
+        case Doi(String)
+    }
+
     pub type alias Publication = {
         title = String,
         authors = List[Linked[String]],
         conference = Linked[Conference],
-        doi = String
+        site = PublicationSite
     }
 
     pub type alias AdditionalInterest = {
@@ -104,7 +109,7 @@ mod Data {
                 People.matthewLutze()
             },
             conference = Conferences.popl2022(),
-            doi = "10.1145/3498674"
+            site = PublicationSite.Doi("10.1145/3498674")
         },
         {
             title = "Restrictable Variants: A Simple and Practical Alternative to Extensible Variants",
@@ -114,7 +119,7 @@ mod Data {
                 People.matthewLutze()
             },
             conference = Conferences.ecoop2023(),
-            doi = "10.4230/LIPIcs.ECOOP.2023.17"
+            site = PublicationSite.Doi("10.4230/LIPIcs.ECOOP.2023.17")
         },
         {
             title = "With or Without You: Programming with Effect Exclusion",
@@ -125,7 +130,7 @@ mod Data {
                 People.jonathanImmanuelBrachthauser()
             },
             conference = Conferences.icfp2023(),
-            doi = "10.1145/3607846"
+            site = PublicationSite.Doi("10.1145/3607846")
         },
         {
             title = "Scientists and Code: Programming as a Tool",
@@ -137,7 +142,7 @@ mod Data {
                 People.clemensNylandstedKlokmose()
             },
             conference = Conferences.plateau2024(),
-            doi = "10.1184/R1/25587726.v1"
+            site = PublicationSite.Doi("10.1184/R1/25587726.v1")
         },
         {
             title = "Associated Effects: Flexible Abstractions for Effectful Programming",
@@ -146,7 +151,17 @@ mod Data {
                 People.magnusMadsen()
             },
             conference = Conferences.pldi2024(),
-            doi = "https://doi.org/10.1145/3656393"
+            site = PublicationSite.Doi("10.1145/3656393")
+        },
+        {
+            title = "The Simple Essense of Monomorphization",
+            authors = List#{
+                People.matthewLutze(),
+                People.philippSchuster(),
+                People.jonathanImmanuelBrachthauser()
+            },
+            conference = Conferences.oopsla2025(),
+            site = PublicationSite.Link("https://se.informatik.uni-tuebingen.de/publications/lutze25simple.pdf")
         }
     }
 
