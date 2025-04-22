@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+rm -fI preview.html
 java -jar flix.jar build
 java -jar flix.jar build-jar
 java -jar artifact/website.jar preview.html
