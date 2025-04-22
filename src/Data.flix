@@ -161,7 +161,7 @@ mod Data {
                 People.jonathanImmanuelBrachthauser()
             },
             conference = Conferences.oopsla2025(),
-            site = PublicationSite.Link("https://se.informatik.uni-tuebingen.de/publications/lutze25simple.pdf")
+            site = PublicationSite.Doi("10.1145/3720472")
         }
     }
 
