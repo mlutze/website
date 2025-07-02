@@ -1,4 +1,5 @@
 mod Data {
+    use Data.Conferences
 
     pub type alias Linked[a] = {
         link = Option[String],
@@ -175,8 +176,12 @@ mod Data {
             conference = Conferences.popl2025()
         },
         {
-            role = "Program Commitee Member",
+            role = "Program Committee Member",
             conference = Conferences.ftfjp2025()
+        },
+        {
+            role = "Program Committee Member",
+            conference = Conferences.tfp2026()
         }
     }
 
@@ -188,10 +193,6 @@ mod Data {
         {
             title = "Music",
             details = "composition, piano, organ, voice"
-        },
-        {
-            title = "Constructed Languages",
-            details = "Lojban, Toki Pona, Ithkuil"
         },
         {
             title = "Natural Languages and Grammar",

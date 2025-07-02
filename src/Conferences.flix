@@ -65,4 +65,12 @@ mod Data.Conferences {
         },
         link = Some("https://2025.ecoop.org/home/FTfJP-2025")
     }
+
+    pub def tfp2026(): Linked[Conference] = {
+        value = {
+            title = "TFP",
+            year = 2026
+        },
+        link = Some("https://trendsfp.github.io/2026")
+    }
 }
