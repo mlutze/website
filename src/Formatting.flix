@@ -1,4 +1,6 @@
 mod Formatting {
+    use Text.HtmlDoc.HtmlAttr.HtmlAttr
+    use Text.HtmlDoc.link0
 
     use Text.HtmlDoc.Html
     use Text.HtmlDoc.HtmlAttr.HtmlAttrBoolean
@@ -54,6 +56,8 @@ mod Formatting {
         meta0(List#{charset_("UTF-8")})
         <&>
         title(Nil, text("Matthew Lutze"))
+        <&>
+        link0(List#{HtmlAttr("rel", "stylesheet"), HtmlAttr("href", "style.css")})
     }
 
     pub def affiliation(data: Data.Affiliation): Html = {
