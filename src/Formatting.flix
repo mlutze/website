@@ -48,8 +48,8 @@ mod Formatting {
         academicServices(data#academicService)
         <&>
         br0(Nil)
-        <&>
-        additionalInterests(data#additionalInterests)
+        // <&>
+        // additionalInterests(data#additionalInterests)
     }
 
     def headContent(): Html = {
