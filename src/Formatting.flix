@@ -1,4 +1,7 @@
 mod Formatting {
+    use Text.HtmlDoc.img0
+    use Text.HtmlDoc.div
+    use Text.HtmlDoc.body
     use Text.HtmlDoc.HtmlAttr.HtmlAttr
     use Text.HtmlDoc.link0
 
@@ -27,9 +30,13 @@ mod Formatting {
     pub def everything(data: Data.Everything): Html = {
         head(Nil, headContent())
         <&>
+        body(Nil, bodyContent(data))
+    }
+
+    def bodyContent(data: Data.Everything): Html = {
         h1(Nil, text("Matthew Lutze"))
         <&>
-        affiliation(data#affiliation)
+        infoBlock(data#affiliation) <&> imageBlock()
         <&>
         br0(Nil) <&> br0(Nil)
         <&>
@@ -50,6 +57,22 @@ mod Formatting {
         br0(Nil)
         // <&>
         // additionalInterests(data#additionalInterests)
+    }
+
+    def infoBlock(data: Data.Affiliation): Html = {
+        div(List#{HtmlAttr("style", "display: inline-block")}, 
+            affiliation(data)
+        )
+    }
+
+    def imageBlock(): Html = {
+        div(List#{HtmlAttr("style", "float: right")},
+            img0(List#{
+                HtmlAttr("src", "profile-photo.jpeg"),
+                HtmlAttr("height", "180"),
+                HtmlAttr("width", "180")
+            })
+        )
     }
 
     def headContent(): Html = {
@@ -85,12 +108,11 @@ mod Formatting {
 
     pub def researchInterests(data: List[Data.ResearchInterest]): Html = {
         let header = h2(Nil, text("Research Interests"));
-        let description = em(Nil, text("Subjects I explore professionally"));
         let list = data
             |> List.map(researchInterest)
             |> mkUnorderedList;
         
-        header <&> description <&> list
+        header <&> list
     }
 
     pub def researchInterest(data: Data.ResearchInterest): Html = {
