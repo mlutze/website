@@ -1,8 +1,9 @@
+# Flix build dirs
 *.fpkg
 *.jar
 artifact/
 build/
 lib/
 
-preview.html
-deploy
+# My build dir
+public_html/
