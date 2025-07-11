@@ -155,7 +155,7 @@ mod Data {
             site = PublicationSite.Doi("10.1145/3656393")
         },
         {
-            title = "The Simple Essense of Monomorphization",
+            title = "The Simple Essence of Monomorphization",
             authors = List#{
                 People.matthewLutze(),
                 People.philippSchuster(),
