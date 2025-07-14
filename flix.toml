@@ -6,4 +6,4 @@ flix        = "0.37.0"
 authors     = ["Matthew Lutze"]
 
 [dependencies]
-"github:stephentetley/flix-htmldoc" = "0.3.1"
+"github:mlutze/flix-htmldoc" = "0.1.2"
