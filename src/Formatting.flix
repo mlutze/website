@@ -106,6 +106,10 @@ mod Formatting {
         }
     }
 
+    pub def unlinked(f: a -> Html, data: Data.Linked[a]): Html = {
+        f(data#value)
+    }
+
     pub def researchInterests(data: List[Data.ResearchInterest]): Html = {
         let header = h2(Nil, text("Research Interests"));
         let list = data
@@ -179,11 +183,11 @@ mod Formatting {
     }
 
     pub def academicService(data: Data.AcademicService): Html = {
-        strong(Nil, text(data#role))
+        strong(Nil, unlinked(conference, data#conference))
         <&>
-        text(" at ")
+        text(" — ") // em-dash
         <&>
-        linked(conference, data#conference)
+        text(data#role)
     }
 
     def publicationSite(site: Data.PublicationSite): Html = match site {
