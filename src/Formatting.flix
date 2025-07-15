@@ -55,6 +55,10 @@ mod Formatting {
         academicServices(data#academicService)
         <&>
         br0(Nil)
+        <&>
+        teachings(data#teaching)
+        // <&>
+        // br0(Nil)
         // <&>
         // additionalInterests(data#additionalInterests)
     }
@@ -239,5 +243,31 @@ mod Formatting {
         text(": ")
         <&>
         text(data#details)
+    }
+
+    pub def teachings(data: List[Data.Teaching]): Html = {
+        let header = h2(Nil, text("Teaching"));
+        let list = data
+            |> List.reverse
+            |> List.map(teaching)
+            |> mkUnorderedList;
+        
+        header <&> list
+    }
+
+    pub def teaching(data: Data.Teaching): Html = {
+        strong(Nil, text(data#class))
+        <&>
+        text(": ")
+        <&>
+        text(data#role)
+        <&&>
+        em(Nil, parens(
+            text(data#school)
+            <&>
+            text(", ")
+            <&>
+            text("${data#year}")
+        ))
     }
 }
