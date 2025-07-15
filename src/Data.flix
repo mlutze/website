@@ -35,7 +35,7 @@ mod Data {
     pub type alias Publication = {
         title = String,
         authors = List[Person],
-        conference = Linked[Conference],
+        conference = Conference,
         site = PublicationSite
     }
 
@@ -46,7 +46,8 @@ mod Data {
 
     pub type alias Conference = {
         title = String,
-        year = Int32
+        year = Int32,
+        website = Option[String]
     }
 
     pub type alias ContactInformation = {
