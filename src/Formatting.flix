@@ -1,29 +1,28 @@
 mod Formatting {
-    use Text.HtmlDoc.img0
-    use Text.HtmlDoc.div
-    use Text.HtmlDoc.body
-    use Text.HtmlDoc.HtmlAttr.HtmlAttr
-    use Text.HtmlDoc.link0
-
     use Text.HtmlDoc.Html
+    use Text.HtmlDoc.HtmlAttr.HtmlAttr
     use Text.HtmlDoc.HtmlAttr.HtmlAttrBoolean
     use Text.HtmlDoc.anchor
+    use Text.HtmlDoc.body
     use Text.HtmlDoc.br0
     use Text.HtmlDoc.charset_
     use Text.HtmlDoc.concat
+    use Text.HtmlDoc.div
     use Text.HtmlDoc.em
     use Text.HtmlDoc.empty
     use Text.HtmlDoc.h1
     use Text.HtmlDoc.h2
     use Text.HtmlDoc.head
     use Text.HtmlDoc.href_
-    use Text.HtmlDoc.title
+    use Text.HtmlDoc.img0
     use Text.HtmlDoc.li
+    use Text.HtmlDoc.link0
     use Text.HtmlDoc.meta0
     use Text.HtmlDoc.ol
     use Text.HtmlDoc.paragraph
     use Text.HtmlDoc.strong
     use Text.HtmlDoc.text
+    use Text.HtmlDoc.title
     use Text.HtmlDoc.ul
     use Text.HtmlDoc.{<&>, <&&>}
 
