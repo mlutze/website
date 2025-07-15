@@ -1,58 +1,70 @@
 mod Data.People {
     use Data.Linked
+    use Data.Person
 
-    pub def carolineBerger(): Linked[String] = {
-        value = "Caroline Berger",
-        link = None
+    pub def carolineBerger(): Person = {
+        name = "Caroline Berger",
+        website = None,
+        isMe = false
     }
 
-    pub def giuseppeCastagna(): Linked[String] = {
-        value = "Giuseppe Castagna",
-        link = Some("https://www.irif.fr/~gc/")
+    pub def giuseppeCastagna(): Person = {
+        name = "Giuseppe Castagna",
+        website = Some("https://www.irif.fr/~gc/"),
+        isMe = false
     }
 
-    pub def niklasElmqvist(): Linked[String] = {
-        value = "Niklas Elmqvist",
-        link = None
+    pub def niklasElmqvist(): Person = {
+        name = "Niklas Elmqvist",
+        website = None,
+        isMe = false
     }
 
-    pub def clemensNylandstedKlokmose(): Linked[String] = {
-        value = "Clemens Nylandsted Klokmose",
-        link = None
+    pub def clemensNylandstedKlokmose(): Person = {
+        name = "Clemens Nylandsted Klokmose",
+        website = None,
+        isMe = false
     }
 
-    pub def mickaelLaurent(): Linked[String] = {
-        value = "Mickaël Laurent",
-        link = None
+    pub def mickaelLaurent(): Person = {
+        name = "Mickaël Laurent",
+        website = None,
+        isMe = false
     }
 
-    pub def kimNguyen(): Linked[String] = {
-        value = "Kim Nguyễn", // diacritics look wrong in source but OK in browser
-        link = Some("https://www.lri.fr/~kn/index_en.html")
+    pub def kimNguyen(): Person = {
+        name = "Kim Nguyễn", // diacritics look wrong in source but OK in browser
+        website = Some("https://www.lri.fr/~kn/index_en.html"),
+        isMe = false
     }
 
-    pub def matthewLutze(): Linked[String] = {
-        value = "Matthew Lutze",
-        link = None
+    pub def matthewLutze(): Person = {
+        name = "Matthew Lutze",
+        website = None,
+        isMe = true
     }
 
-    pub def magnusMadsen(): Linked[String] = {
-        value = "Magnus Madsen",
-        link = Some("https://cs.au.dk/~magnusm/")
+    pub def magnusMadsen(): Person = {
+        name = "Magnus Madsen",
+        website = Some("https://cs.au.dk/~magnusm/"),
+        isMe = false
     }
 
-    pub def jonathanLindegaardStarup(): Linked[String] = {
-        value = "Jonathan Lindegaard Starup",
-        link = None
+    pub def jonathanLindegaardStarup(): Person = {
+        name = "Jonathan Lindegaard Starup",
+        website = None,
+        isMe = false
     }
 
-    pub def philippSchuster(): Linked[String] = {
-        value = "Philipp Schuster",
-        link = Some("https://se.informatik.uni-tuebingen.de/team/schuster/")
+    pub def philippSchuster(): Person = {
+        name = "Philipp Schuster",
+        website = Some("https://se.informatik.uni-tuebingen.de/team/schuster/"),
+        isMe = false
     }
 
-    pub def jonathanImmanuelBrachthauser(): Linked[String] = {
-        value = "Jonathan Immanuel Brachthäuser",
-        link = Some("https://se.informatik.uni-tuebingen.de/team/brachthaeuser/")
+    pub def jonathanImmanuelBrachthauser(): Person = {
+        name = "Jonathan Immanuel Brachthäuser",
+        website = Some("https://se.informatik.uni-tuebingen.de/team/brachthaeuser/"),
+        isMe = false
     }
 }

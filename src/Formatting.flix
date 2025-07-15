@@ -204,11 +204,19 @@ mod Formatting {
         text("${data#title} ${data#year}")
     }
 
-    def authors(data: List[Data.Linked[String]]): Html = {
+    def authors(data: List[Data.Person]): Html = {
         data
-            |> List.map(linked(text))
-            |> List.reduceLeft((acc, link) -> acc <&> text(", ") <&> link)
+            |> List.map(author)
+            |> List.reduceLeft((acc, name) -> acc <&> text(", ") <&> name)
             |> Option.getWithDefault(empty())
+    }
+
+    def author(data: Data.Person): Html = {
+        if (data#isMe) {
+            strong(Nil, text(data#name))
+        } else {
+            text(data#name)
+        }
     }
 
     pub def contactInformation(data: Data.ContactInformation): Html = {

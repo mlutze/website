@@ -34,7 +34,7 @@ mod Data {
 
     pub type alias Publication = {
         title = String,
-        authors = List[Linked[String]],
+        authors = List[Person],
         conference = Linked[Conference],
         site = PublicationSite
     }
@@ -57,6 +57,12 @@ mod Data {
     pub type alias AcademicService = {
         role = String,
         conference = Linked[Conference]
+    }
+
+    pub type alias Person = {
+        name = String,
+        website = Option[String],
+        isMe = Bool
     }
 
     pub def everything(): Everything = {
