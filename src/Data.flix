@@ -12,7 +12,8 @@ mod Data {
         publications = List[Publication],
         academicService = List[AcademicService],
         additionalInterests = List[AdditionalInterest],
-        contactInformation = ContactInformation
+        contactInformation = ContactInformation,
+        teaching = List[Teaching]
     }
 
     pub type alias Affiliation = {
@@ -66,13 +67,21 @@ mod Data {
         isMe = Bool
     }
 
+    pub type alias Teaching = {
+        role = String,
+        school = String,
+        class = String,
+        year = Int32
+    }
+
     pub def everything(): Everything = {
-        affiliation = Data.affiliation(),
+        affiliation = affiliation(),
         researchInterests = researchInterests(),
         publications = publications(),
         additionalInterests = additionalInterests(),
         academicService = academicService(),
-        contactInformation = contactInformation()
+        contactInformation = contactInformation(),
+        teaching = teaching()
     }
 
     def affiliation(): Affiliation = {
@@ -214,5 +223,50 @@ mod Data {
     def contactInformation(): ContactInformation = {
         office = "Turing 217",
         email = "mlutze@cs.au.dk"
+    }
+
+    def teaching(): List[Teaching] = List#{
+        {
+            class = "Introduction to Programming I",
+            role = "Teaching Assistant",
+            school = "Gustavus Adolphus College",
+            year = 2015
+        },
+        {
+            class = "Introduction to Programming II",
+            role = "Teaching Assistant",
+            school = "Gustavus Adolphus College",
+            year = 2016
+        },
+        {
+            class = "Principles of Programming Languages",
+            role = "Teaching Assistant",
+            school = "Gustavus Adolphus College",
+            year = 2017
+        },
+        {
+            class = "Programming Languages",
+            role = "Teaching Assistant",
+            school = "Aarhus University",
+            year = 2023
+        },
+        {
+            class = "Compilation",
+            role = "Teaching Assistant",
+            school = "Aarhus University",
+            year = 2023
+        },
+        {
+            class = "Compilation",
+            role = "Teaching Assistant",
+            school = "Aarhus University",
+            year = 2024
+        },
+        {
+            class = "Introduction to Programming",
+            role = "Curriculum Design",
+            school = "Aarhus University",
+            year = 2025
+        }
     }
 }
