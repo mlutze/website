@@ -153,23 +153,17 @@ mod Formatting {
     }
 
     pub def publication(data: Data.Publication): Html = {
-        strong(Nil, text(data#title))
+        strong(Nil, withLink(link(data#site), text(data#title)))
         <&&>
-        publicationSite(data#site)
+        parens(conference(data#conference))
         <&>
         br0(Nil)
         <&>
-        text("at ")
-        <&>
-        conference(data#conference)
-        <&>
-        br0(Nil)
-        <&>
-        em(Nil, 
-            text("by ")
-            <&>
-            authors(data#authors)
-        )
+        em(Nil, authors(data#authors))
+    }
+
+    pub def parens(html: Html): Html = {
+        text("(") <&> html <&> text(")")
     }
 
     pub def academicServices(data: List[Data.AcademicService]): Html = {
@@ -190,14 +184,13 @@ mod Formatting {
         text(data#role)
     }
 
-    def publicationSite(site: Data.PublicationSite): Html = match site {
-        case Data.PublicationSite.Doi(doi) => doiLink(doi)
-        case Data.PublicationSite.Link(link) => anchor(List#{href_(link)}, text("[link]"))
+    pub def withLink(url: String, html: Html): Html = {
+        anchor(List#{href_(url)}, html)
     }
 
-    def doiLink(doi: String): Html = {
-        let link = "https://doi.org/" + doi;
-        anchor(List#{href_(link)}, text("[link]"))
+    def link(data: Data.PublicationSite): String = match data {
+        case Data.PublicationSite.Doi(doi) => "https://doi.org/" + doi
+        case Data.PublicationSite.Link(link) => link
     }
 
     pub def conference(data: Data.Conference): Html = {
