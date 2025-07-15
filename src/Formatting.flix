@@ -161,7 +161,7 @@ mod Formatting {
         <&>
         text("at ")
         <&>
-        linked(conference, data#conference)
+        conference(data#conference)
         <&>
         br0(Nil)
         <&>
@@ -183,7 +183,7 @@ mod Formatting {
     }
 
     pub def academicService(data: Data.AcademicService): Html = {
-        strong(Nil, unlinked(conference, data#conference))
+        strong(Nil, conference(data#conference))
         <&>
         text(" — ") // em-dash
         <&>

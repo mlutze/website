@@ -57,7 +57,7 @@ mod Data {
 
     pub type alias AcademicService = {
         role = String,
-        conference = Linked[Conference]
+        conference = Conference
     }
 
     pub type alias Person = {
