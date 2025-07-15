@@ -153,9 +153,11 @@ mod Formatting {
     }
 
     pub def publication(data: Data.Publication): Html = {
-        strong(Nil, withLink(link(data#site), text(data#title)))
+        strong(Nil, conference(data#conference))
+        <&>
+        text(": ")
         <&&>
-        parens(conference(data#conference))
+        withLink(link(data#site), text(data#title))
         <&>
         br0(Nil)
         <&>
@@ -179,7 +181,7 @@ mod Formatting {
     pub def academicService(data: Data.AcademicService): Html = {
         strong(Nil, conference(data#conference))
         <&>
-        text(" — ") // em-dash
+        text(": ")
         <&>
         text(data#role)
     }
@@ -234,7 +236,7 @@ mod Formatting {
     pub def additionalInterest(data: Data.AdditionalInterest): Html = {
         text(data#title)
         <&>
-        text(" — ") // em-dash
+        text(": ")
         <&>
         text(data#details)
     }
