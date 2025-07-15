@@ -31,7 +31,7 @@ mod Data.Conferences {
             title = "PLATEAU",
             year = 2024
         },
-        link = None
+        link = Some("https://2024.plateau-workshop.org/")
     }
 
     pub def pldi2024(): Linked[Conference] = {
