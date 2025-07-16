@@ -116,6 +116,14 @@ code {
   border-radius: 3px;
 }
 
+/* Highlighting */
+mark {
+  background-color: #fff9c4;
+  color: inherit;
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   body {

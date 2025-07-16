@@ -1,4 +1,5 @@
 mod Formatting {
+    use Text.HtmlDoc.mark
     use Text.HtmlDoc.Html
     use Text.HtmlDoc.HtmlAttr.HtmlAttr
     use Text.HtmlDoc.HtmlAttr.HtmlAttrBoolean
@@ -200,7 +201,7 @@ mod Formatting {
 
     def author(data: Data.Person): Html = {
         if (data#isMe) {
-            strong(Nil, text(data#name))
+            mark(Nil, text(data#name))
         } else {
             text(data#name)
         }
