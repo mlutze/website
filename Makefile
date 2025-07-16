@@ -1,5 +1,5 @@
-FLIX_SRC := $(wildcard src/**/*)
-OUTPUT := $(wildcard public_html/**/*)
+FLIX_SRC := $(shell find src -type f)
+OUTPUT := $(shell find public_html -type f)
 
 all: build
 
