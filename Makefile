@@ -1,5 +1,5 @@
 FLIX_SRC := $(shell find src -type f)
-OUTPUT := $(shell find public_html -type f)
+RESOURCES := $(shell find resources -type f)
 
 all: build
 
@@ -7,11 +7,13 @@ artifact/website.jar: $(FLIX_SRC)
 	java -jar flix.jar build
 	java -jar flix.jar build-jar
 
-# creates everything and puts it in public_html
-build: artifact/website.jar
+public_html/: $(RESOURCES) artifact/website.jar
 	mkdir -p public_html
+	touch public_html
 	java -jar artifact/website.jar public_html/index.html
 	cp resources/* public_html/
+
+build: public_html/
 
 # deploys to the server
 deploy: build
@@ -22,3 +24,5 @@ clean:
 	rm -rf build
 	rm -rf artifact
 	rm -rf public_html
+
+.PHONY: all build clean deploy
