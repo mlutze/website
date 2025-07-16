@@ -13,7 +13,8 @@ mod Data {
         academicService = List[AcademicService],
         additionalInterests = List[AdditionalInterest],
         contactInformation = ContactInformation,
-        teaching = List[Teaching]
+        teaching = List[Teaching],
+        extraLinks = Map[String, String]
     }
 
     pub type alias Affiliation = {
@@ -76,7 +77,8 @@ mod Data {
         additionalInterests = additionalInterests(),
         academicService = academicService(),
         contactInformation = contactInformation(),
-        teaching = teaching()
+        teaching = teaching(),
+        extraLinks = extraLinks()
     }
 
     def affiliation(): Affiliation = {
@@ -256,5 +258,10 @@ mod Data {
             school = "Aarhus University",
             year = 2025
         }
+    }
+
+    def extraLinks(): Map[String, String] = Map#{
+        "DBLP" => "https://dblp.org/pid/312/9823.html",
+        "Google Scholar" => "https://scholar.google.com/citations?user=NxVN8dwAAAAJ"
     }
 }
