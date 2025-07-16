@@ -8,7 +8,7 @@ mod Data {
 
     pub type alias Everything = {
         affiliation = Affiliation,
-        researchInterests = List[ResearchInterest],
+        researchInterests = String,
         publications = List[Publication],
         academicService = List[AcademicService],
         additionalInterests = List[AdditionalInterest],
@@ -21,11 +21,6 @@ mod Data {
         group = Linked[String],
         department = Linked[String],
         institute = Linked[String]
-    }
-
-    pub type alias ResearchInterest = {
-        title = String,
-        details = String
     }
 
     pub enum PublicationSite {
@@ -100,19 +95,12 @@ mod Data {
         }
     }
 
-    def researchInterests(): List[ResearchInterest] = List#{
-        {
-            title = "Programming Languages",
-            details = "I am a contributor to the Flix programming language."
-        },
-        {
-            title = "Type Systems",
-            details = "type inference, subtyping, type classes"
-        },
-        {
-            title = "Effect Systems",
-            details = "algebraic effects, Boolean unification-based effects"
-        }
+    def researchInterests(): String = {
+        List#{
+            "My research interests include type and effect systems, type inference, and subtyping.",
+            "I am a contributor to the Flix programming language,",
+            "which I work on with my advisor Magnus Madsen."
+        } |> List.join(" ")
     }
 
     /// List of publications in chronological order.

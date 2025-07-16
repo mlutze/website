@@ -113,21 +113,10 @@ mod Formatting {
         f(data#value)
     }
 
-    pub def researchInterests(data: List[Data.ResearchInterest]): Html = {
+    pub def researchInterests(data: String): Html = {
         let header = h2(Nil, text("Research Interests"));
-        let list = data
-            |> List.map(researchInterest)
-            |> mkUnorderedList;
-        
-        header <&> list
-    }
-
-    pub def researchInterest(data: Data.ResearchInterest): Html = {
-        text(data#title)
-        <&>
-        text(" — ") // em-dash
-        <&>
-        text(data#details)
+        let content = text(data);
+        header <&> content
     }
 
 
