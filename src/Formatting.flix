@@ -42,6 +42,10 @@ mod Formatting {
         <&>
         contactInformation(data#contactInformation)
         <&>
+        br0(Nil) <&> br0(Nil)
+        <&>
+        extraLinks(data#extraLinks)
+        <&>
         br0(Nil)
         <&>
         researchInterests(data#researchInterests)
@@ -214,6 +218,19 @@ mod Formatting {
         br0(Nil)
         <&>
         text(data#email)
+    }
+
+    pub def extraLinks(data: Map[String, String]): Html = {
+        data
+            |> Map.toList
+            |> List.map(extraLink)
+            |> List.reduceLeft((l, r) -> l <&> text(" • ") <&> r)
+            |> Option.getWithDefault(empty())
+    }
+
+    pub def extraLink(data: (String, String)): Html = {
+        let (name, url) = data;
+        withLink(url, text(name))
     }
 
     pub def additionalInterests(data: List[Data.AdditionalInterest]): Html = {
