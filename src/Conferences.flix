@@ -50,6 +50,12 @@ mod Data.Conferences {
         website = Some("https://2025.ecoop.org/home/FTfJP-2025")
     }
 
+    pub def farm2025(): Conference = {
+        title = "FARM",
+        year = 2025,
+        website = Some("https://2025.splashcon.org/track/splash-2025-farm")
+    }
+
     pub def tfp2026(): Conference = {
         title = "TFP",
         year = 2026,

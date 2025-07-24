@@ -169,7 +169,15 @@ mod Data {
             },
             conference = Conferences.oopsla2025(),
             site = PublicationSite.Doi("10.1145/3720472")
-        }
+        },
+        // {
+        //     title = "Type-safe Blazon: Enforcing Pedantry in Heraldic Design",
+        //     authors = List#{
+        //         People.matthewLutze()
+        //     },
+        //     conference = Conferences.farm2025(),
+        //     site = PublicationSite.Doi("???") // TODO
+        // }
     }
 
     def academicService(): List[AcademicService] = List#{
