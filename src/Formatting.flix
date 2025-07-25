@@ -36,15 +36,17 @@ mod Formatting {
     def bodyContent(data: Data.Everything): Html = {
         h1(Nil, text("Matthew Lutze"))
         <&>
-        infoBlock(data#affiliation) <&> imageBlock()
-        <&>
-        br0(Nil) <&> br0(Nil)
-        <&>
-        contactInformation(data#contactInformation)
-        <&>
-        br0(Nil) <&> br0(Nil)
-        <&>
-        extraLinks(data#extraLinks)
+        infoBlock(
+            affiliation(data#affiliation)
+            <&>
+            br0(Nil) <&> br0(Nil)
+            <&>
+            contactInformation(data#contactInformation)
+            <&>
+            br0(Nil) <&> br0(Nil)
+            <&>
+            extraLinks(data#extraLinks)
+        ) <&> imageBlock()
         <&>
         br0(Nil)
         <&>
@@ -67,10 +69,8 @@ mod Formatting {
         // additionalInterests(data#additionalInterests)
     }
 
-    def infoBlock(data: Data.Affiliation): Html = {
-        div(List#{HtmlAttr("style", "display: inline-block")}, 
-            affiliation(data)
-        )
+    def infoBlock(content: Html): Html = {
+        div(List#{HtmlAttr("style", "display: inline-block")}, content)
     }
 
     def imageBlock(): Html = {
