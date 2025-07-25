@@ -88,7 +88,16 @@ mod Formatting {
         <&>
         title(Nil, text("Matthew Lutze"))
         <&>
-        link0(List#{HtmlAttr("rel", "stylesheet"), HtmlAttr("href", "style.css")})
+        link0(List#{
+            HtmlAttr("rel", "stylesheet"),
+            HtmlAttr("href", "style.css")
+        })
+        <&>
+        link0(List#{
+            HtmlAttr("rel", "icon"),
+            HtmlAttr("type", "image/x-icon"),
+            HtmlAttr("href", "favicon.ico")
+        })
     }
 
     pub def affiliation(data: Data.Affiliation): Html = {
