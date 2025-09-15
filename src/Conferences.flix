@@ -61,4 +61,10 @@ mod Data.Conferences {
         year = 2026,
         website = Some("https://trendsfp.github.io/2026")
     }
+
+    pub def wits2026(): Conference = {
+        title = "WITS",
+        year = 2026,
+        website = Some("https://popl26.sigplan.org/home/wits-2026")
+    }
 }

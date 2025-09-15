@@ -196,6 +196,10 @@ mod Data {
         {
             role = "Program Committee Member",
             conference = Conferences.tfp2026()
+        },
+        {
+            role = "Program Committee Member",
+            conference = Conferences.wits2026()
         }
     }
 
