@@ -200,6 +200,10 @@ mod Data {
         {
             role = "Program Committee Member",
             conference = Conferences.wits2026()
+        },
+        {
+            role = "Program Committee Member",
+            conference = Conferences.oopsla2026()
         }
     }
 
