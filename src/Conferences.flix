@@ -68,6 +68,12 @@ mod Data.Conferences {
         website = Some("https://popl26.sigplan.org/home/wits-2026")
     }
 
+    pub def scala2026(): Conference = {
+        title = "Scala Workshop",
+        year = 2026,
+        website = None
+    }
+
     pub def oopsla2026(): Conference = {
         title = "OOPSLA",
         year = 2026,

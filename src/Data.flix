@@ -203,6 +203,10 @@ mod Data {
         },
         {
             role = "Program Committee Member",
+            conference = Conferences.scala2026()
+        },
+        {
+            role = "Program Committee Member",
             conference = Conferences.oopsla2026()
         }
     }
@@ -271,6 +275,18 @@ mod Data {
         {
             class = "Introduction to Programming",
             role = "Curriculum Design",
+            school = "Aarhus University",
+            year = 2025
+        },
+        {
+            class = "Compilation",
+            role = "Guest Lecturer",
+            school = "Aarhus University",
+            year = 2024
+        },
+        {
+            class = "Introduction to Programming",
+            role = "Contributing Lecturer",
             school = "Aarhus University",
             year = 2025
         }
