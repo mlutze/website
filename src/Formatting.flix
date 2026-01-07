@@ -1,4 +1,5 @@
 mod Formatting {
+    use Data.VenueType
     use Text.HtmlDoc.mark
     use Text.HtmlDoc.Html
     use Text.HtmlDoc.HtmlAttr.HtmlAttr
@@ -135,7 +136,34 @@ mod Formatting {
 
 
     pub def publications(data: List[Data.Publication]): Html = {
-        let header = h2(Nil, text("Publications"));
+        let confs = data |> List.filter(
+            publ -> match publ#venue#tpe {
+                case VenueType.Conference => true
+                case VenueType.Workshop => false
+            }
+        );
+        let works = data |> List.filter(
+            publ -> match publ#venue#tpe {
+                case VenueType.Conference => false
+                case VenueType.Workshop => true
+            }
+        );
+        conferencePublications(confs)
+        <&> 
+        workshopPublications(works)
+    }
+
+    pub def conferencePublications(data: List[Data.Publication]): Html = {
+        let header = h2(Nil, text("Conference Publications"));
+        let list = data
+            |> List.map(publication)
+            |> mkReverseList;
+
+        header <&> list
+    }
+
+    pub def workshopPublications(data: List[Data.Publication]): Html = {
+        let header = h2(Nil, text("Workshop Publications"));
         let list = data
             |> List.map(publication)
             |> mkReverseList;

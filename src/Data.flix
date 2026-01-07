@@ -44,7 +44,13 @@ mod Data {
     pub type alias Venue = {
         title = String,
         year = Int32,
-        website = Option[String]
+        website = Option[String],
+        tpe = VenueType
+    }
+
+    pub enum VenueType {
+        case Workshop
+        case Conference
     }
 
     pub type alias ContactInformation = {
@@ -170,14 +176,14 @@ mod Data {
             venue = Venues.oopsla2025(),
             site = PublicationSite.Doi("10.1145/3720472")
         },
-        // {
-        //     title = "Type-safe Blazon: Enforcing Pedantry in Heraldic Design",
-        //     authors = List#{
-        //         People.matthewLutze()
-        //     },
-        //     venue = Venues.farm2025(),
-        //     site = PublicationSite.Doi("???") // TODO
-        // }
+        {
+            title = "Type-safe Blazon: Enforcing Pedantry in Heraldic Design",
+            authors = List#{
+                People.matthewLutze()
+            },
+            venue = Venues.farm2025(),
+            site = PublicationSite.Doi("10.1145/3759162.3759641") // TODO
+        }
     }
 
     def academicService(): List[AcademicService] = List#{
