@@ -10,6 +10,7 @@ mod Data {
         affiliation = Affiliation,
         researchInterests = String,
         publications = List[Publication],
+        talks = List[Talk],
         academicService = List[AcademicService],
         additionalInterests = List[AdditionalInterest],
         contactInformation = ContactInformation,
@@ -34,6 +35,11 @@ mod Data {
         authors = List[Person],
         venue = Venue,
         site = PublicationSite
+    }
+
+    pub type alias Talk = {
+        title = String,
+        venue = Venue
     }
 
     pub type alias AdditionalInterest = {
@@ -80,6 +86,7 @@ mod Data {
         affiliation = affiliation(),
         researchInterests = researchInterests(),
         publications = publications(),
+        talks = talks(),
         additionalInterests = additionalInterests(),
         academicService = academicService(),
         contactInformation = contactInformation(),
@@ -183,6 +190,13 @@ mod Data {
             },
             venue = Venues.farm2025(),
             site = PublicationSite.Doi("10.1145/3759162.3759641") // TODO
+        }
+    }
+
+    def talks(): List[Talk] = List#{
+        {
+            title = "On Monomorphization",
+            venue = Venues.tfp2026()
         }
     }
 

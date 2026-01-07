@@ -57,11 +57,9 @@ mod Formatting {
         <&>
         publications(data#publications)
         <&>
-        br0(Nil)
+        talks(data#talks)
         <&>
         academicServices(data#academicService)
-        <&>
-        br0(Nil)
         <&>
         teachings(data#teaching)
         // <&>
@@ -134,6 +132,22 @@ mod Formatting {
         header <&> content
     }
 
+    pub def talks(data: List[Data.Talk]): Html = {
+        let header = h2(Nil, text("Invited Talks"));
+        let list = data
+            |> List.reverse
+            |> List.map(talk)
+            |> mkUnorderedList;
+        header <&> list
+    }
+
+    pub def talk(data: Data.Talk): Html = {
+        strong(Nil, venue(data#venue))
+        <&>
+        text(": ")
+        <&>
+        text(data#title)
+    }
 
     pub def publications(data: List[Data.Publication]): Html = {
         let confs = data |> List.filter(
@@ -149,7 +163,7 @@ mod Formatting {
             }
         );
         conferencePublications(confs)
-        <&> 
+        <&>
         workshopPublications(works)
     }
 
@@ -175,11 +189,6 @@ mod Formatting {
         let lis = elms |> List.reverse |> List.map(li(Nil));
         ol(HtmlAttrBoolean("reversed") :: Nil, concat(lis))
     }
-
-    // def mkOrderedList(elms: List[Html]): Html = {
-    //     let lis = elms |> List.map(li(Nil));
-    //     ol(Nil, concat(lis))
-    // }
 
     def mkUnorderedList(elms: List[Html]): Html = {
         let lis = elms |> List.map(li(Nil));
