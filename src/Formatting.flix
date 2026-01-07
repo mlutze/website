@@ -159,7 +159,7 @@ mod Formatting {
     }
 
     pub def publication(data: Data.Publication): Html = {
-        strong(Nil, conference(data#conference))
+        strong(Nil, venue(data#venue))
         <&>
         text(": ")
         <&&>
@@ -185,7 +185,7 @@ mod Formatting {
     }
 
     pub def academicService(data: Data.AcademicService): Html = {
-        strong(Nil, conference(data#conference))
+        strong(Nil, venue(data#venue))
         <&>
         text(": ")
         <&>
@@ -201,7 +201,7 @@ mod Formatting {
         case Data.PublicationSite.Link(link) => link
     }
 
-    pub def conference(data: Data.Conference): Html = {
+    pub def venue(data: Data.Venue): Html = {
         text("${data#title} ${data#year}")
     }
 

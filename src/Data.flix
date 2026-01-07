@@ -1,5 +1,5 @@
 mod Data {
-    use Data.Conferences
+    use Data.Venues
 
     pub type alias Linked[a] = {
         link = Option[String],
@@ -32,7 +32,7 @@ mod Data {
     pub type alias Publication = {
         title = String,
         authors = List[Person],
-        conference = Conference,
+        venue = Venue,
         site = PublicationSite
     }
 
@@ -41,7 +41,7 @@ mod Data {
         details = String
     }
 
-    pub type alias Conference = {
+    pub type alias Venue = {
         title = String,
         year = Int32,
         website = Option[String]
@@ -54,7 +54,7 @@ mod Data {
 
     pub type alias AcademicService = {
         role = String,
-        conference = Conference
+        venue = Venue
     }
 
     pub type alias Person = {
@@ -115,7 +115,7 @@ mod Data {
                 People.kimNguyen(),
                 People.matthewLutze()
             },
-            conference = Conferences.popl2022(),
+            venue = Venues.popl2022(),
             site = PublicationSite.Doi("10.1145/3498674")
         },
         {
@@ -125,7 +125,7 @@ mod Data {
                 People.jonathanLindegaardStarup(),
                 People.matthewLutze()
             },
-            conference = Conferences.ecoop2023(),
+            venue = Venues.ecoop2023(),
             site = PublicationSite.Doi("10.4230/LIPIcs.ECOOP.2023.17")
         },
         {
@@ -136,7 +136,7 @@ mod Data {
                 People.philippSchuster(),
                 People.jonathanImmanuelBrachthauser()
             },
-            conference = Conferences.icfp2023(),
+            venue = Venues.icfp2023(),
             site = PublicationSite.Doi("10.1145/3607846")
         },
         {
@@ -148,7 +148,7 @@ mod Data {
                 People.magnusMadsen(),
                 People.clemensNylandstedKlokmose()
             },
-            conference = Conferences.plateau2024(),
+            venue = Venues.plateau2024(),
             site = PublicationSite.Doi("10.1184/R1/25587726.v1")
         },
         {
@@ -157,7 +157,7 @@ mod Data {
                 People.matthewLutze(),
                 People.magnusMadsen()
             },
-            conference = Conferences.pldi2024(),
+            venue = Venues.pldi2024(),
             site = PublicationSite.Doi("10.1145/3656393")
         },
         {
@@ -167,7 +167,7 @@ mod Data {
                 People.philippSchuster(),
                 People.jonathanImmanuelBrachthauser()
             },
-            conference = Conferences.oopsla2025(),
+            venue = Venues.oopsla2025(),
             site = PublicationSite.Doi("10.1145/3720472")
         },
         // {
@@ -175,7 +175,7 @@ mod Data {
         //     authors = List#{
         //         People.matthewLutze()
         //     },
-        //     conference = Conferences.farm2025(),
+        //     venue = Venues.farm2025(),
         //     site = PublicationSite.Doi("???") // TODO
         // }
     }
@@ -183,31 +183,31 @@ mod Data {
     def academicService(): List[AcademicService] = List#{
         {
             role = "Artifact Evaluation Reviewer",
-            conference = Conferences.pldi2024()
+            venue = Venues.pldi2024()
         },
         {
             role = "Artifact Evaluation Reviewer",
-            conference = Conferences.popl2025()
+            venue = Venues.popl2025()
         },
         {
             role = "Program Committee Member",
-            conference = Conferences.ftfjp2025()
+            venue = Venues.ftfjp2025()
         },
         {
             role = "Program Committee Member",
-            conference = Conferences.tfp2026()
+            venue = Venues.tfp2026()
         },
         {
             role = "Program Committee Member",
-            conference = Conferences.wits2026()
+            venue = Venues.wits2026()
         },
         {
             role = "Program Committee Member",
-            conference = Conferences.scala2026()
+            venue = Venues.scala2026()
         },
         {
             role = "Program Committee Member",
-            conference = Conferences.oopsla2026()
+            venue = Venues.oopsla2026()
         }
     }
 
