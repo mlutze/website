@@ -95,7 +95,7 @@ mod Data {
     }
 
     def affiliation(): Affiliation = {
-        title = "Ph.D. Student",
+        title = "Postdoctoral Researcher",
         group = {
             value = "Programming Language Group",
             link = Some("https://cs.au.dk/research/programming-languages")
@@ -112,7 +112,7 @@ mod Data {
 
     def researchInterests(): String = {
         List#{
-            "My research interests include type and effect systems, type inference, and subtyping.",
+            "My research interests include type and effect systems, type inference, subtyping, and compilation.",
             "I am a contributor to the Flix programming language,",
             "which I work on with my advisor Magnus Madsen."
         } |> List.join(" ")
