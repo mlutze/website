@@ -15,7 +15,8 @@ mod Data {
         additionalInterests = List[AdditionalInterest],
         contactInformation = ContactInformation,
         teaching = List[Teaching],
-        extraLinks = Map[String, String]
+        extraLinks = Map[String, String],
+        education = List[Education]
     }
 
     pub type alias Affiliation = {
@@ -82,6 +83,13 @@ mod Data {
         year = Int32
     }
 
+    pub type alias Education = {
+        degree = String,
+        school = String,
+        year = Int32,
+        extra = Option[String]
+    }
+
     pub def everything(): Everything = {
         affiliation = affiliation(),
         researchInterests = researchInterests(),
@@ -91,7 +99,8 @@ mod Data {
         academicService = academicService(),
         contactInformation = contactInformation(),
         teaching = teaching(),
-        extraLinks = extraLinks()
+        extraLinks = extraLinks(),
+        education = education()
     }
 
     def affiliation(): Affiliation = {
@@ -315,5 +324,26 @@ mod Data {
     def extraLinks(): Map[String, String] = Map#{
         "DBLP" => "https://dblp.org/pid/312/9823.html",
         "Google Scholar" => "https://scholar.google.com/citations?user=NxVN8dwAAAAJ"
+    }
+
+    def education(): List[Education] = List#{
+        {
+            year = 2018,
+            degree = "Bachelor in Computer Science",
+            extra = None,
+            school = "Gustavus Adolphus College"
+        },
+        {
+            year = 2022,
+            degree = "Master in Computer Science",
+            extra = None,
+            school = "Université Paris Cité"
+        },
+        {
+            year = 2026,
+            degree = "Ph.D. in Computer Science",
+            extra = Some("Dissertation: On Effects, Inference, and Type Flow"),
+            school = "Aarhus University"
+        }
     }
 }

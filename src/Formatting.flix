@@ -62,6 +62,8 @@ mod Formatting {
         academicServices(data#academicService)
         <&>
         teachings(data#teaching)
+        <&>
+        educations(data#education)
         // <&>
         // br0(Nil)
         // <&>
@@ -321,5 +323,40 @@ mod Formatting {
             <&>
             text("${data#year}")
         ))
+    }
+
+    pub def educations(data: List[Data.Education]): Html = {
+        let header = h2(Nil, text("Education"));
+        let list = data
+            |> List.reverse
+            |> List.map(education)
+            |> mkUnorderedList;
+
+        header <&> list
+    }
+
+    pub def education(data: Data.Education): Html = {
+        strong(Nil, text(data#school))
+        <&>
+        text(": ")
+        <&>
+        text(data#degree)
+        <&>
+        text(", ")
+        <&>
+        text("${data#year}")
+        <&>
+        (
+            data#extra |> optionally(
+                extra -> br0(Nil) <&> em(Nil, text(extra))
+            )
+        )
+    }
+
+    def optionally(f: a -> Html, x: Option[a]): Html = {
+        match x {
+            case None => empty()
+            case Some(y) => f(y)
+        }
     }
 }
