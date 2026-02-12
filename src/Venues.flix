@@ -93,4 +93,11 @@ mod Data.Venues {
         website = Some("https://2026.splashcon.org/track/oopsla-2026"),
         tpe = VenueType.Conference
     }
+
+    pub def programming2027(): Venue = {
+        title = "PROGRAMMING",
+        year = 2027,
+        website = None,
+        tpe = VenueType.Conference
+    }
 }

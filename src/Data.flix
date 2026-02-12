@@ -237,6 +237,10 @@ mod Data {
         {
             role = "Program Committee Member",
             venue = Venues.oopsla2026()
+        },
+        {
+            role = "Program Committee Member",
+            venue = Venues.programming2027()
         }
     }
 
