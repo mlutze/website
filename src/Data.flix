@@ -58,6 +58,13 @@ mod Data {
     pub enum VenueType {
         case Workshop
         case Conference
+        case Journal
+    }
+
+    pub enum ServiceRole {
+        case ProgramCommittee
+        case ArtifactEvaluation
+        case Referee
     }
 
     pub type alias ContactInformation = {
@@ -66,7 +73,7 @@ mod Data {
     }
 
     pub type alias AcademicService = {
-        role = String,
+        role = ServiceRole,
         venue = Venue
     }
 
@@ -211,36 +218,40 @@ mod Data {
 
     def academicService(): List[AcademicService] = List#{
         {
-            role = "Artifact Evaluation Reviewer",
+            role = ServiceRole.ArtifactEvaluation,
             venue = Venues.pldi2024()
         },
         {
-            role = "Artifact Evaluation Reviewer",
+            role = ServiceRole.ArtifactEvaluation,
             venue = Venues.popl2025()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.ftfjp2025()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.tfp2026()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.wits2026()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.scala2026()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.oopsla2026()
         },
         {
-            role = "Program Committee Member",
+            role = ServiceRole.ProgramCommittee,
             venue = Venues.programming2027()
+        },
+        {
+            role = ServiceRole.Referee,
+            venue = Venues.toplas2026()
         }
     }
 

@@ -156,12 +156,14 @@ mod Formatting {
             publ -> match publ#venue#tpe {
                 case VenueType.Conference => true
                 case VenueType.Workshop => false
+                case VenueType.Journal => false
             }
         );
         let works = data |> List.filter(
             publ -> match publ#venue#tpe {
                 case VenueType.Conference => false
                 case VenueType.Workshop => true
+                case VenueType.Journal => false
             }
         );
         conferencePublications(confs)
@@ -228,7 +230,13 @@ mod Formatting {
         <&>
         text(": ")
         <&>
-        text(data#role)
+        serviceRole(data#role)
+    }
+
+    pub def serviceRole(data: Data.ServiceRole): Html = match data {
+        case Data.ServiceRole.ArtifactEvaluation => text("Artifact Evaluation Reviewer")
+        case Data.ServiceRole.ProgramCommittee => text("Program Committee Member")
+        case Data.ServiceRole.Referee => text("Referee")
     }
 
     pub def withLink(url: String, html: Html): Html = {
