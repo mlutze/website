@@ -1,16 +1,16 @@
-use Text.HtmlDoc.toString
-use Text.HtmlDoc.writeHtml
+use HtmlDoc.toString
+use HtmlDoc.writeHtml
+use Sys.Env
+use Fs.FileWrite
 import java.lang.System
 
-def main(): Unit \ IO = {
-    run {
-        match doMain() {
-            case Ok(()) => System.exit(0)
-            case Err(msg) => System.err.println("Error: " + msg); System.exit(1)
-        }
-    } with Env.runWithIO
+def main(): Unit \ FileWrite + Env + IO = {
+    match doMain() {
+        case Ok(()) => System.exit(0)
+        case Err(msg) => System.err.println("Error: " + msg); System.exit(1)
+    }
 }
-def doMain(): Result[String, Unit] \ IO + Env = {
+def doMain(): Result[String, Unit] \ FileWrite + Env = {
     forM (
         file <- getWriteFile();
         _ <- writeToFile(file) |> Result.mapErr(ToString.toString)
@@ -25,9 +25,9 @@ def getWriteFile(): Result[String, String] \ Env = {
     }
 }
 
-def writeToFile(file: String): Result[String, Unit] \ IO = {
+def writeToFile(file: String): Result[IoError, Unit] \ FileWrite = {
     let doc = Formatting.everything(Data.everything());
     forM (
-        _ <- writeHtml(120, file, doc)
+        _ <- writeHtml(doc, 120, file)
     ) yield ()
 }
