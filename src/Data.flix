@@ -213,6 +213,10 @@ mod Data {
         {
             title = "On Monomorphization",
             venue = Venues.tfp2026()
+        },
+        {
+            title = "Constraint-Based Everything",
+            venue = Venues.ml2026()
         }
     }
 

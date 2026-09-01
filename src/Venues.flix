@@ -107,4 +107,11 @@ mod Data.Venues {
         website = None,
         tpe = VenueType.Journal
     }
+
+    pub def ml2026(): Venue = {
+        title = "ML Workshop",
+        year = 2026,
+        website = None,
+        tpe = VenueType.Workshop
+    }
 }
